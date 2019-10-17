@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  char s1[10][10]={"arthfg","jdhfiw","pohwet","bjasgf","bzdvfu","pethbs"},s2[10];
+  int q1,q2,q3,i,j,k,vezes=0;
+
+  fgets(s2,sizeof(s2),stdin);
+  q1=strlen(s1[0]);
+  q3=strlen(s2)-1;
+  q2=q1-q3+1;
+  
+  for(i=0;i<q1;i++){
+    for(j=0;j<q2;j++){
+      int cont=0;
+      for(k=0;k<q3;k++){
+        if(s1[i][k+j]==s2[k])
+          cont++;
+      }
+      if(cont==q3)
+       vezes++;
+    }
+  }
+  printf("%d\n",vezes);
+  return 0;
+}
