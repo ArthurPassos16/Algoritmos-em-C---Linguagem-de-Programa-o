@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1571860851 source:c:\users\arthur.passos\desktop\algoritmos_em_c\ponteiros&strings\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
