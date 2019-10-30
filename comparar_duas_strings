@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int compare(char *s1, char *s2){
+    int i;
+    if(sizeof(s1)==sizeof(s2)){
+        for(i=0;i<sizeof(s1);i++){
+            if(s1[i]!=s2[i])
+                return "Falso";
+        }
+        return "Verdadeiro";
+    }else
+        return "Falso";
+}
+int main()
+{
+    printf("%s\n",compare(" "," "));
+    return 0;
+}
