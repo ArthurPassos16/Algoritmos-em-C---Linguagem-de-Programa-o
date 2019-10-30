@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1571926401 source:c:\users\arthur.passos\desktop\algoritmos_em_c\monitoria_24-10\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
