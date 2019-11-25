@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void) {
+  FILE *arq1, *arq2;
+  arq1=fopen("arquivo1.txt","r");
+  arq2=fopen("arquivo2.txt","w");
+
+  if(arq1==NULL || arq2==NULL){
+    printf("ERRO... \n");
+    return -1;
+  }
+  char ch;
+  ch=fgetc(arq1);
+
+  while(ch!=EOF){
+    printf("%c",ch);
+    fprintf(arq2,"%c", ch);
+    ch=fgetc(arq1);
+  }
+  fclose(arq1);
+  fclose(arq2);
+  return 0;
+}
+/*necessário ter dois arquivos*/
