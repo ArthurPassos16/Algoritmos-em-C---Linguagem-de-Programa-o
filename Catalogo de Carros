@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+typedef struct{
+  int ano;
+  char modelo[100];
+  char marca[100];
+}Carro;
+
+int main(void) {
+  int n=5;
+  char temp[100]="";
+
+  Carro *catalogo;
+  FILE *arq;
+  arq=fopen("catalog.txt","r");
+
+  catalogo=malloc(sizeof(Carro)*n);
+
+  if (catalogo==NULL){
+    return 0;
+  }
+
+  for (int i=0;i<n;i++){
+    catalogo[i].ano=1990+rand()%30;
+    char ch='a'+rand()%('z'-'a');
+    temp[0]=ch;
+    strcpy(catalogo[i].marca,temp);
+    ch='a'+rand()%('z'-'a');
+    temp[0]=ch;
+    strcpy(catalogo[i].modelo,temp);
+  }
+
+  for(int i=0;i<n;i++){
+    printf("\n\nCarro %d:\n",i+1);
+    printf("Ano: %d\n",catalogo[i].ano);
+    printf("Marca: %s\n",catalogo[i].marca);
+    printf("Modelo: %s\n",catalogo[i].modelo);
+  }
+
+  return 0;
+}
