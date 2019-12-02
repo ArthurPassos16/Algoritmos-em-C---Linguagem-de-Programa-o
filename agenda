@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int addNome(char **agenda,char *nome, int *pCont){
+  if(agenda==NULL){
+    printf("Deu erro!\n");
+    return -1;
+  }
+  strcpy(agenda[*pCont],nome);
+  (*pCont)++;
+  return 0;
+}
+
+int main(void) {
+
+  char **agenda=NULL, *nome=NULL;
+  int n=1,m=10,op;
+  int *pCont=NULL,cont=0;
+
+  pCont=&cont;
+  nome=malloc(sizeof(char)*m);
+  agenda=malloc(sizeof(char *)*n);
+
+  if(agenda==NULL)
+    return -1;
+  do{
+    printf("1 - Adicionar\n");
+    printf("2 - Substrair\n");
+    printf("3 - Mostrar\n");
+    printf("4 - Sair\n");
+    scanf("%d",&op);
+    switch(op){
+      case 1:
+        if(*pCont==n)
+          agenda=(char **)realloc(agenda,sizeof(char *)*(n+1));
+
+        agenda[*pCont]=(char *)malloc(sizeof(char)*m);
+
+        scanf("%s",nome);
+        addNome(agenda,nome,pCont);
+        n++;
+      break;
+      case 2:
+        free(agenda[*pCont]);
+        agenda[*pCont]=NULL;
+        n--;
+        (*pCont)--;
+      break; 
+      case 3:
+        for(int i=0;i<n-1;i++){
+          printf("Nome: %s\n",agenda[i]);
+        }
+      break;
+    }
+  }while(op!=4);
+
+  free(agenda);
+  free(nome);
+  return 0;
+}
